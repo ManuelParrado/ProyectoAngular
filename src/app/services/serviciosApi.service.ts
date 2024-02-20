@@ -6,6 +6,7 @@ import { MisPedidos } from '../interfaces/mis-pedidos';
 import { Login, Respuesta, UsuarioAutenticado } from '../interfaces/login';
 import { CookieService } from 'ngx-cookie-service';
 import { RespuestaCarrito } from '../interfaces/carrito';
+import { Registro, RespuestaRegistro } from '../interfaces/registro';
 
 const httpOptions={
   headers:new HttpHeaders({'Content-Type':'application/json',}),
@@ -57,10 +58,15 @@ export class ServiciosApi {
     return this.http.get<Producto[]>(`${this.apiUrl}/producto/getProductosById/${cookie}`);
   }
 
-  insertarPedido(productos : Producto[]){
+  insertPedido(productos : Producto[]){
     let cookie : string = this.cookieService.get("jwt");
     this.url = `${this.apiUrl}/pedidoproducto/insertarPedido/${cookie}`;
     return this.http.post<RespuestaCarrito>(this.url,productos,httpOptions);
+  }
+
+  insertUser(user: Registro){
+    this.url = `${this.apiUrl}/user/insertUser`;
+    return this.http.post<RespuestaRegistro>(this.url,user,httpOptions);
   }
 
 }

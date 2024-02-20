@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../../interfaces/producto';
 import { ServiciosApi } from '../../services/serviciosApi.service';
 import { CookieService } from 'ngx-cookie-service';
+import { UsuarioAutenticado } from '../../interfaces/login';
 
 @Component({
   selector: 'app-productos',
@@ -17,6 +18,14 @@ export class ProductosComponent {
   autenticado: boolean = false;
   carrito: number[] = [];
 
+  respuesta: UsuarioAutenticado = {
+    resultado: '',
+    nombre: '',
+    apellidos: '',
+    email: '',
+    rol: ''
+  }
+
   constructor(private serviciosApi : ServiciosApi, private cookieService :  CookieService) { }
 
   ngOnInit(): void {
@@ -26,9 +35,18 @@ export class ProductosComponent {
       (api) => (this.listaProductos = api)
     )
 
-    if(this.cookieService.check("jwt")){
-      this.autenticado = true;
-    }
+    this.serviciosApi.getUser().subscribe(
+      (api) => {
+        this.respuesta = api;
+
+        if (this.respuesta.resultado == "null"){
+          this.autenticado = false;
+        } else {
+          this.autenticado = true;
+        }
+      }
+
+    )
 
   }
 

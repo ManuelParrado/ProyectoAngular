@@ -37,7 +37,7 @@ export class CarritoComponent {
   }
 
   hacerPedido(){
-    this.serviciosApi.insertarPedido(this.productosEnCarrito).subscribe(
+    this.serviciosApi.insertPedido(this.productosEnCarrito).subscribe(
       (api) => {
         this.respuesta = api;
         if (this.respuesta.resultado == 'ok'){

@@ -1,0 +1,67 @@
+<main class="min-h-screen flex items-center justify-center">
+
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+
+    <h2 class="text-2xl font-bold text-center mb-4">Registrarse</h2>
+
+    <form (ngSubmit)="registro()">
+
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+        <input type="email" [(ngModel)]="user.email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md"
+          placeholder="Introduzca su correo electrónico">
+      </div>
+
+      <div class="bg-red-100 rounded mb-2 pl-2">
+        <span class="text-red-700">{{mensajeCorreo}}</span>
+      </div>
+
+      <div class="mb-4">
+        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" [(ngModel)]="user.nombre" id="nombre" name="nombre" class="mt-1 p-2 w-full border rounded-md"
+          placeholder="Introduzca su nombre">
+      </div>
+
+      <div class="mb-4">
+        <label for="apellidos" class="block text-sm font-medium text-gray-700">Apellidos</label>
+        <input type="text" [(ngModel)]="user.apellidos" id="apellidos" name="apellidos"
+          class="mt-1 p-2 w-full border rounded-md" placeholder="Introduzca sus apellidos">
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <input type="password" [(ngModel)]="user.password" id="password" name="password"
+          class="mt-1 p-2 w-full border rounded-md" placeholder="Introduzca una contraseña">
+      </div>
+
+      <div class="bg-red-100 rounded mb-2 pl-2">
+        <span class="text-red-700">{{mensajePasswordValida}}</span>
+      </div>
+
+      <div class="mb-4">
+        <label for="repite_password" class="block text-sm font-medium text-gray-700">Repite Contraseña</label>
+        <input type="password" [(ngModel)]="repite_password" id="repite_password" name="repite_password"
+          class="mt-1 p-2 w-full border rounded-md" placeholder="Repita su contraseña">
+      </div>
+
+      <div class="bg-red-100 rounded mb-2 pl-2">
+        <span class="text-red-700">{{mensajePasswordCoinciden}}</span>
+      </div>
+
+      <div class="bg-red-100 rounded mb-2 pl-2 mb-3">
+        <span class="text-red-700">{{mensajeExiste}}</span>
+        <span class="text-red-700">{{mensajeObligatorios}}</span>
+      </div>
+
+      <button type="submit"
+        class="bg-red-600 text-white p-2 w-full rounded-md hover:bg-red-800 focus:outline-none focus:ring focus:border-blue-300">Registrarse</button>
+
+    </form>
+
+    <div class="mt-4 text-center">
+      ¿Ya tienes cuenta? <a href="/login" class="text-blue-500 hover:underline">Inicia sesión</a>
+    </div>
+
+  </div>
+
+</main>

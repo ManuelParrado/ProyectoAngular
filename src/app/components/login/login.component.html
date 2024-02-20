@@ -9,30 +9,38 @@
       <div class="mb-4">
         <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
         <input type="email" [(ngModel)]="user.email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md"
-          required>
+          required placeholder="Introduzca su email">
+      </div>
+
+      <div class="bg-red-100 rounded mb-2 pl-2">
+        <span class="text-red-700">{{mensajeCorreo}}</span>
       </div>
 
       <div class="mb-4">
         <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
         <input type="password" [(ngModel)]="user.password" id="password" name="password"
-          class="mt-1 p-2 w-full border rounded-md" required>
+          class="mt-1 p-2 w-full border rounded-md" required placeholder="Introduzca su contraseña">
+      </div>
+
+      <div class="bg-red-100 rounded pl-2 mb-3">
+        <span class="text-red-700">{{mensajeUserValido}}</span>
+        <span class="text-red-700">{{mensajeObligatorios}}</span>
       </div>
 
       <button type="submit"
-        class="bg-blue-500 text-white p-2 w-full rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Iniciar
+        class="bg-red-600 text-white p-2 w-full rounded-md hover:bg-red-800 focus:outline-none focus:ring focus:border-blue-300">Iniciar
         Sesión</button>
 
-      <div class="p-2 text-red-700 text-center">
-        <p>{{mensaje}}</p>
-      </div>
+
 
     </form>
 
-    <div class="mt-4 text-center">
+    <!--<div class="mt-4 text-center">
       <a href="#" class="text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
-    </div>
+    </div>-->
+
     <div class="mt-4 text-center">
-      ¿No tienes cuenta? Regístrate <a href="#" class="text-blue-500 hover:underline">aquí</a>
+      ¿No tienes cuenta? Regístrate <a href="/registro" class="text-blue-500 hover:underline">aquí</a>
     </div>
 
   </div>

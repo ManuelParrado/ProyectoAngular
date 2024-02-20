@@ -1,5 +1,5 @@
 export interface Login {
-  email : string;
+  email :string;
   password : string;
 }
 

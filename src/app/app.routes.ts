@@ -3,6 +3,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { LoginComponent } from './components/login/login.component';
 import { MisPedidosComponent } from './components/mis-pedidos/mis-pedidos.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 export const routes: Routes = [
   {
@@ -12,8 +13,14 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    title: 'Login',
+    title: 'Inicio Sesión',
     component: LoginComponent,
+  }
+  ,
+  {
+    path: 'registro',
+    title: 'Registro',
+    component: RegistroComponent,
   },
   {
     path: 'mispedidos',
