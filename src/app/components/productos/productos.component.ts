@@ -18,13 +18,7 @@ export class ProductosComponent {
   autenticado: boolean = false;
   carrito: number[] = [];
 
-  respuesta: UsuarioAutenticado = {
-    resultado: '',
-    nombre: '',
-    apellidos: '',
-    email: '',
-    rol: ''
-  }
+  respuesta!: UsuarioAutenticado;
 
   constructor(private serviciosApi : ServiciosApi, private cookieService :  CookieService) { }
 

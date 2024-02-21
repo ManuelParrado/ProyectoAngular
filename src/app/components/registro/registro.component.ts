@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Registro, RespuestaRegistro } from '../../interfaces/registro';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ServiciosApi } from '../../services/serviciosApi.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Respuesta } from '../../interfaces/login';

@@ -8,9 +8,10 @@ export interface Respuesta {
 }
 
 export interface UsuarioAutenticado {
-  resultado: String;
-  nombre: String | null;
-  apellidos: String | null;
-  email: String | null;
-  rol: String | null;
+  id: number,
+  resultado: string,
+  nombre: string | null,
+  apellidos: string | null,
+  email: string | null,
+  rol: string | null,
 }

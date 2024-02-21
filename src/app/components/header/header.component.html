@@ -81,6 +81,14 @@
         <li>
           <a href="/mispedidos" class="block px-4 py-2 hover:bg-red-100">Mis Pedidos</a>
         </li>
+        <li>
+          <a href="/editarPerfil" class="block px-4 py-2 hover:bg-red-100">Editar Perfil</a>
+        </li>
+        @if(usuario.rol === "a"){
+        <li>
+          <a href="/administracion" class="block px-4 py-2 hover:bg-red-100">Administración</a>
+        </li>
+        }
       </ul>
       <div class="py-2 border-top-0 border-gray-700">
         <a (click)="logout()" href="/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-100">Cerrar

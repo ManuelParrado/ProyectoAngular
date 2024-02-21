@@ -7,6 +7,7 @@ import { Login, Respuesta, UsuarioAutenticado } from '../interfaces/login';
 import { CookieService } from 'ngx-cookie-service';
 import { RespuestaCarrito } from '../interfaces/carrito';
 import { Registro, RespuestaRegistro } from '../interfaces/registro';
+import { RespuestaDelete, User, UserUpdate } from '../interfaces/user';
 
 const httpOptions={
   headers:new HttpHeaders({'Content-Type':'application/json',}),
@@ -17,13 +18,7 @@ const httpOptions={
 })
 export class ServiciosApi {
 
-  private respuesta: UsuarioAutenticado = {
-    resultado: '',
-    nombre: '',
-    apellidos: '',
-    email: '',
-    rol: ''
-  }
+  private respuesta!: UsuarioAutenticado;
   private apiUrl = 'http://localhost:8080';
   private url = "";
 
@@ -67,6 +62,20 @@ export class ServiciosApi {
   insertUser(user: Registro){
     this.url = `${this.apiUrl}/user/insertUser`;
     return this.http.post<RespuestaRegistro>(this.url,user,httpOptions);
+  }
+
+  getAllUsers(){
+    return this.http.get<User[]>(`${this.apiUrl}/user/getAllUsers`);
+  }
+
+  deleteByEmail(email : string){
+    this.url = `${this.apiUrl}/user/deleteByEmail`;
+    return this.http.post<RespuestaDelete>(this.url,email,httpOptions);
+  }
+
+  updateUser(user : UserUpdate){
+    this.url = `${this.apiUrl}/user/updateUser`;
+    return this.http.post<RespuestaDelete>(this.url,user,httpOptions);
   }
 
 }

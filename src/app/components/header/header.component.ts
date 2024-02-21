@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { ServiciosApi } from '../../services/serviciosApi.service';
 import { CookieService } from 'ngx-cookie-service';
 import { UsuarioAutenticado } from '../../interfaces/login';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,15 +16,9 @@ export class HeaderComponent {
   autenticado: Boolean = false;
   carrito: number[] = [];
 
-  usuario: UsuarioAutenticado = {
-    resultado: '',
-    nombre: '',
-    apellidos: '',
-    email: '',
-    rol: ''
-  }
+  usuario!: UsuarioAutenticado;
 
-  constructor(private serviciosApi: ServiciosApi, private cookieService: CookieService, private router : Router) {}
+  constructor(private serviciosApi: ServiciosApi, private cookieService: CookieService) {}
 
   ngOnInit(): void {
     if (this.cookieService.check("jwt")){
