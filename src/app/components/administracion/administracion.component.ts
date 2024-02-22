@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdministracionComponent {
 
-  users! : User[] ;
+  users : User[] =  [];
   userAdministrar!: User;
 
   respuesta!: RespuestaDelete;
@@ -31,18 +31,19 @@ export class AdministracionComponent {
 
   delete(email : string){
 
-    this.serviciosApi.deleteByEmail(email).subscribe(
-      (api) => {this.respuesta = api;
+    if (confirm("¿Estás seguro de que quieres borrar el usuario?")) {
+      this.serviciosApi.deleteByEmail(email).subscribe(
+        (api) => {this.respuesta = api;
 
-        if (this.respuesta.resultado = "ok"){
-          console.log("Usuario borrado correctamente")
-          window.location.href = "/administracion";
-        } else {
-          console.log("Error");
+          if (this.respuesta.resultado === "ok"){
+            window.location.href="/administracion"
+          } else {
+            console.log("Error");
+          }
+
         }
-
-      }
-    )
+      )
+    }
   }
 
 }

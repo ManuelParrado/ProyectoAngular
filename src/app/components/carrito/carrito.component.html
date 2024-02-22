@@ -19,21 +19,20 @@
           </div>
           <div class="flex items-center mt-5 justify-between">
             <span class="text-3xl font-bold text-gray-900">{{p.precio}}€</span>
-            <a
-              class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Quitar
-              del carrito</a>
           </div>
         </div>
       </div>
     </div>
     }
   </div>
-  <div class="inline-block ml-5 p-2 rounded-lg h-auto h-28 mt-3 p-3 border border-gray-300 shadow-lg">
+  <div class="inline-block ml-5 p-2 rounded-lg h-36 mt-3 p-3 border border-gray-300 shadow-lg">
     <div class="flex flex-row mb-3 text-gray-600">
       <p>Total: {{total}}€</p>
     </div>
+    <div class="bg-green-100 rounded px-2 mb-3">
+      <span class="text-green-700">{{mensaje}}</span>
+    </div>
     <div class="flex flex-row mt-5 mb-7">
-      <div class="flex flex-row">{{mensaje}}</div>
       <button class="flex flex-row" type="button" (click)="hacerPedido()"
         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Hacer
         pedido</button>

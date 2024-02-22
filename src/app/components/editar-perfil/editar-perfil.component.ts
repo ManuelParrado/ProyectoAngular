@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { ServiciosApi } from '../../services/serviciosApi.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
-import { RespuestaRegistro } from '../../interfaces/registro';
 import { UsuarioAutenticado } from '../../interfaces/login';
 import { RespuestaDelete, UserUpdate } from '../../interfaces/user';
+import { window } from 'rxjs';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -25,6 +25,7 @@ export class EditarPerfilComponent {
   mensajePasswordValida : string = '';
   repite_password : string = '';
   mensajePasswordCoinciden : string = '';
+  mensaje : string = '';
 
   constructor(private serviciosApi: ServiciosApi, private cookieService: CookieService) {}
 
@@ -78,9 +79,9 @@ export class EditarPerfilComponent {
       {
         this.respuesta = api;
         if (this.respuesta.resultado == 'ok'){
-          console.log("actualizado")
+          this.mensaje = 'Usuario editado correctamente'
         } else {
-          console.log("hiedes")
+          this.mensaje = 'Ha ocurrido un error'
         }
       }
     )
