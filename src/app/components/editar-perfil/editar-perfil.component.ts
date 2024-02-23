@@ -47,6 +47,11 @@ export class EditarPerfilComponent {
 
   updateUser(){
 
+    this.mensaje = '';
+    this.mensajeCorreo = '';
+    this.mensajePasswordCoinciden = '';
+    this.mensajePasswordValida = '';
+
     if (this.userUpdate.email != null){
       if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(this.userUpdate.email)) {
         this.mensajeCorreo = 'Por favor, introduce un correo electrónico válido';

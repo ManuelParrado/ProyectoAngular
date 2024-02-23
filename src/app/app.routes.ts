@@ -19,8 +19,7 @@ export const routes: Routes = [
     path: 'login',
     title: 'Inicio Sesión',
     component: LoginComponent,
-  }
-  ,
+  },
   {
     path: 'registro',
     title: 'Registro',
